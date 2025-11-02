@@ -71,11 +71,30 @@ window.addEventListener('load', () => {
     setTimeout(animateWelcome, 1000);
 });
 
-// Form submission (placeholder)
+// Form submission with EmailJS
 document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Thank you for your message! I will get back to you soon.');
-    e.target.reset();
+
+    // Initialize EmailJS with your public key
+    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+
+    const formData = {
+        from_name: e.target.querySelector('input[type="text"]').value,
+        from_email: e.target.querySelector('input[type="email"]').value,
+        message: e.target.querySelector('textarea').value,
+        to_email: 'rifki200804@gmail.com' // Your email address
+    };
+
+    // Send email using EmailJS
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData) // Replace with your service and template IDs
+        .then((response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        }, (error) => {
+            console.log('FAILED...', error);
+            alert('Sorry, there was an error sending your message. Please try again later.');
+        });
 });
 
 // Navbar background change on scroll
@@ -320,6 +339,62 @@ document.addEventListener('click', (e) => {
         closeModal();
     }
 });
+
+// Modal functionality for projects
+function openProjectModal(imageSrc, title) {
+    const modal = document.getElementById('project-modal');
+    const modalImg = document.getElementById('project-modal-image');
+    const modalTitle = document.getElementById('project-modal-title');
+
+    modalImg.src = imageSrc;
+    modalTitle.textContent = title;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// Close project modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('project-modal');
+    if (e.target === modal) {
+        closeProjectModal();
+    }
+});
+
+// Carousel functionality for project images
+function initCarousels() {
+    const carousels = document.querySelectorAll('.carousel');
+
+    carousels.forEach(carousel => {
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-rotate every 3 seconds
+        setInterval(nextSlide, 3000);
+
+        // Show first slide initially
+        showSlide(0);
+    });
+}
+
+// Initialize carousels when page loads
+window.addEventListener('load', initCarousels);
 
 // Show all certificates
 document.getElementById('show-all-btn').addEventListener('click', () => {

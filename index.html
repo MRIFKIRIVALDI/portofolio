@@ -12,6 +12,7 @@
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 
 <body class="bg-[#030518] text-white font-sans pt-16">
@@ -99,7 +100,7 @@
         </p>
 
         <div class="flex gap-4 items-center">
-          <a href="#" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
+          <a href="https://drive.google.com/file/d/1XCyIfsT1hZT-G4m71-WjyEKcSomVwHjB/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
           <a href="#projects" class="border border-cyan-400 hover:bg-cyan-500 hover:text-white px-5 py-2 rounded-lg transition-all hover:scale-110 font-bold">View Projects</a>
           <!-- Social Media Icons -->
           <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="hover:scale-110 transition-transform">
@@ -174,20 +175,30 @@
     <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Projects</h2>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-105 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="flip-left">
-        <h3 class="text-xl font-bold mb-2">E-Commerce App</h3>
-        <p class="text-gray-400 text-sm mb-4">Full-stack web app dengan React dan Node.js</p>
-        <a href="#" class="text-cyan-400 hover:underline transition-colors">View Details →</a>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="flip-left">
+        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/kknfeed1.jpg', 'Feed IG KKN Desa Cikadu')">
+          <img src="images/project/kknfeed1.jpg" alt="Feed IG KKN Desa Cikadu 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+          <img src="images/project/kknfeed2.jpg" alt="Feed IG KKN Desa Cikadu 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+          <img src="images/project/kknfeed3.jpg" alt="Feed IG KKN Desa Cikadu 3" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">Feed IG KKN Desa Cikadu</h3>
+        <p class="text-gray-400 text-sm mb-4">Proyek feed Instagram selama satu bulan untuk KKN Desa Cikadu menggunakan CorelDraw dan Canva untuk desain grafis yang menarik.</p>
+        <a href="https://www.instagram.com/kkn.cikadu2025/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
       </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-105 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="flip-left" data-aos-delay="100">
-        <h3 class="text-xl font-bold mb-2">AI Chatbot</h3>
-        <p class="text-gray-400 text-sm mb-4">Chatbot cerdas menggunakan Python dan NLP</p>
-        <a href="#" class="text-cyan-400 hover:underline transition-colors">View Details →</a>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="100">
+        <img src="images/project/goss.png" alt="Go Pesantren" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/goss.png', 'Go Pesantren')">
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">Go Pesantren</h3>
+        <p class="text-gray-400 text-sm mb-4">Website rekomendasi pesantren terbaik di Indonesia, dibangun dengan HTML, CSS, Python, dan API Gemini untuk pencarian cerdas.</p>
+        <a href="https://youtu.be/WiSeUj2SIU8?si=O1fh90BGxziF_1Xj" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
       </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-105 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="flip-left" data-aos-delay="200">
-        <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
-        <p class="text-gray-400 text-sm mb-4">Website portofolio dengan animasi keren</p>
-        <a href="#" class="text-cyan-400 hover:underline transition-colors">View Details →</a>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="200">
+        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/portoss.png', 'Portfolio Website')">
+          <img src="images/project/portoss.png" alt="Portfolio Website 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+          <img src="images/project/portoss2.png" alt="Portfolio Website 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">Portfolio Website</h3>
+        <p class="text-gray-400 text-sm mb-4">Website portofolio pribadi dengan animasi 3D, desain responsif, dan fitur interaktif menggunakan HTML, CSS, JavaScript, dan Three.js.</p>
+        <a href="https://github.com/MRIFKIRIVALDI/portofolio.git" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
       </div>
     </div>
   </section>
@@ -251,18 +262,18 @@
           <img src="images/logo/logo maps.png" alt="Location" class="w-12 h-12 mb-2">
           <p class="text-gray-300 text-sm">Indonesia</p>
         </div>
-        <div class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+        <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
           <img src="images/logo/logo github.png" alt="GitHub" class="w-12 h-12 mb-2">
           <p class="text-gray-300 text-sm">GitHub</p>
-        </div>
-        <div class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
           <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-12 h-12 mb-2">
           <p class="text-gray-300 text-sm">LinkedIn</p>
-        </div>
-        <div class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+        </a>
+        <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
           <img src="images/logo/logo ig.png" alt="Instagram" class="w-12 h-12 mb-2">
           <p class="text-gray-300 text-sm">Instagram</p>
-        </div>
+        </a>
       </div>
       <form class="space-y-4" data-aos="fade-left">
         <input type="text" placeholder="Name" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors">
@@ -290,6 +301,15 @@
       <img id="modal-image" src="" alt="Certificate" class="w-full h-auto rounded-lg mb-4">
       <h3 id="modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
       <p id="modal-description" class="text-gray-300"></p>
+    </div>
+  </div>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
+    <div class="bg-[#030518] p-8 rounded-2xl border border-cyan-400 max-w-4xl w-full mx-4 relative">
+      <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl">&times;</button>
+      <img id="project-modal-image" src="" alt="Project" class="w-full h-auto rounded-lg mb-4">
+      <h3 id="project-modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
     </div>
   </div>
 
