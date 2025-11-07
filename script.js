@@ -238,7 +238,7 @@ function initThreeJS() {
 
     // Renderer
     renderer = new THREE.WebGLRenderer({ alpha: true });
-    renderer.setSize(384, 384); // 96 * 4 for retina
+    renderer.setSize(450, 450); // Updated to match container size
     renderer.setClearColor(0x000000, 0); // Transparent background
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
