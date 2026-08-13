@@ -1,8 +1,10 @@
 // Initialize AOS (Animate On Scroll)
-AOS.init({
-    duration: 1000,
-    once: true,
-});
+if (window.AOS) {
+    AOS.init({
+        duration: 1000,
+        once: true,
+    });
+}
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -51,11 +53,11 @@ function animateProfession() {
 }
 
 // Animated welcome text
-const welcomeText = "WELCOME TO MY PORTOFOLIO";
+const welcomeText = "WELCOME TO MY PORTFOLIO";
 let welcomeCharIndex = 0;
 
 function animateWelcome() {
-    const welcomeElement = document.querySelector('#home h1:first-of-type');
+    const welcomeElement = document.getElementById('welcome-title');
     if (welcomeCharIndex < welcomeText.length) {
         welcomeElement.textContent = welcomeText.substring(0, welcomeCharIndex + 1);
         welcomeCharIndex++;
@@ -71,30 +73,59 @@ window.addEventListener('load', () => {
     setTimeout(animateWelcome, 1000);
 });
 
-// Form submission with EmailJS
-document.querySelector('form').addEventListener('submit', (e) => {
-    e.preventDefault();
+// ===== Kontak: Kirim via Email (mailto) & WhatsApp (wa.me) =====
+const CONTACT_EMAIL = 'rifki200804@gmail.com';
+const CONTACT_WA_NUMBER = '6281296876716'; // format internasional tanpa '+' atau '0'
 
-    // Initialize EmailJS with your public key
-    emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+// Ambil isi form
+function getContactData() {
+    const form = document.getElementById('contact-form');
+    const name = form.querySelector('#contact-name').value.trim();
+    const email = form.querySelector('#contact-email').value.trim();
+    const message = form.querySelector('#contact-message').value.trim();
+    return { form, name, email, message };
+}
 
-    const formData = {
-        from_name: e.target.querySelector('input[type="text"]').value,
-        from_email: e.target.querySelector('input[type="email"]').value,
-        message: e.target.querySelector('textarea').value,
-        to_email: 'rifki200804@gmail.com' // Your email address
-    };
+// Validasi form sebelum dikirim
+function validateContact() {
+    const data = getContactData();
 
-    // Send email using EmailJS
-    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData) // Replace with your service and template IDs
-        .then((response) => {
-            console.log('SUCCESS!', response.status, response.text);
-            alert('Thank you for your message! I will get back to you soon.');
-            e.target.reset();
-        }, (error) => {
-            console.log('FAILED...', error);
-            alert('Sorry, there was an error sending your message. Please try again later.');
-        });
+    if (!data.name || !data.message) {
+        alert('Mohon isi Name dan Message terlebih dahulu.');
+        return null;
+    }
+    if (!data.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+        alert('Mohon isi Email dengan format yang benar. Contoh: nama@email.com');
+        return null;
+    }
+
+    return data;
+}
+
+// Kirim via Email → membuka Gmail (kompos baru) dengan isi pesan yang sudah terisi
+document.getElementById('send-email-btn').addEventListener('click', () => {
+    const data = validateContact();
+    if (!data) return;
+
+    const subject = encodeURIComponent(`Pesan dari ${data.name} (${data.email})`);
+    const body = encodeURIComponent(`${data.message}\n\nDikirim dari halaman portfolio M. Rifki Rivaldi.`);
+    const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${CONTACT_EMAIL}&su=${subject}&body=${body}`;
+
+    // Buka Gmail langsung di tab baru
+    window.open(gmailComposeUrl, '_blank', 'noopener');
+    data.form.reset();
+});
+
+// Kirim via WhatsApp → membuka aplikasi/WhatsApp Web dengan pesan yang sudah terisi
+document.getElementById('send-wa-btn').addEventListener('click', () => {
+    const data = validateContact();
+    if (!data) return;
+
+    const text = encodeURIComponent(`Halo, saya ${data.name} (${data.email}).\n\n${data.message}`);
+    const waLink = `https://wa.me/${CONTACT_WA_NUMBER}?text=${text}`;
+
+    window.open(waLink, '_blank', 'noopener');
+    data.form.reset();
 });
 
 // Navbar background change on scroll
@@ -111,74 +142,26 @@ window.addEventListener('scroll', () => {
 document.getElementById('menu-toggle').addEventListener('click', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
 });
 
 // Add floating animation to skill icons
-document.querySelectorAll('.bg-\\[\\#05072B\\] > div:first-child').forEach((icon, index) => {
+document.querySelectorAll('.skill-icon').forEach((icon, index) => {
     icon.style.animation = `float ${2 + index * 0.5}s ease-in-out infinite`;
 });
 
-// Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-    }
+// Catatan: Animasi kustom (float, fade-in, slide-up, bounce-in, marquee, dll.)
+// didefinisikan di styles.css agar konsisten satu sumber.
 
-    @keyframes fade-in {
-        from { opacity: 0; transform: translateY(-20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
+// Add particle effect to hero section (dibatasi jumlahnya agar tidak membebani performa)
+const MAX_PARTICLES = 15;
 
-    @keyframes slide-up {
-        from { opacity: 0; transform: translateY(50px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes bounce-in {
-        0% { opacity: 0; transform: scale(0.3); }
-        50% { opacity: 1; transform: scale(1.05); }
-        70% { transform: scale(0.9); }
-        100% { opacity: 1; transform: scale(1); }
-    }
-
-    @keyframes slide-left-full {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(100%); }
-    }
-
-    @keyframes slide-right-full {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-100%); }
-    }
-
-    .animate-fade-in {
-        animation: fade-in 1s ease-out;
-    }
-
-    .animate-slide-up {
-        animation: slide-up 1s ease-out;
-    }
-
-    .animate-bounce-in {
-        animation: bounce-in 1s ease-out;
-    }
-
-    .slide-left-full {
-        animation: slide-left-full 10s linear infinite;
-    }
-
-    .slide-right-full {
-        animation: slide-right-full 10s linear infinite;
-    }
-`;
-document.head.appendChild(style);
-
-// Add particle effect to hero section
 function createParticle() {
+    const existing = document.querySelectorAll('.particle-effect');
+    if (existing.length >= MAX_PARTICLES) return;
+
     const particle = document.createElement('div');
-    particle.className = 'fixed w-2 h-2 bg-cyan-400 rounded-full opacity-60 pointer-events-none';
+    particle.className = 'particle-effect fixed w-2 h-2 bg-cyan-400 rounded-full opacity-60 pointer-events-none';
     particle.style.left = Math.random() * 100 + '%';
     particle.style.top = '100%';
     particle.style.animation = `float-up ${Math.random() * 5 + 5}s linear infinite`;
@@ -190,17 +173,8 @@ function createParticle() {
     }, 10000);
 }
 
-// Add float-up animation
-const particleStyle = document.createElement('style');
-particleStyle.textContent = `
-    @keyframes float-up {
-        to { transform: translateY(-100vh); opacity: 0; }
-    }
-`;
-document.head.appendChild(particleStyle);
-
-// Create particles periodically
-setInterval(createParticle, 2000);
+// Create particles periodically (lebih hemat: 3 detik)
+setInterval(createParticle, 3000);
 
 // Add interactive hover effects for project cards
 document.querySelectorAll('[data-aos="flip-left"]').forEach(card => {
@@ -216,7 +190,7 @@ document.querySelectorAll('[data-aos="flip-left"]').forEach(card => {
 });
 
 // Add click effect for buttons
-document.querySelectorAll('button, a[href="#"]').forEach(btn => {
+document.querySelectorAll('button, a.bg-cyan-500, a.border-cyan-400').forEach(btn => {
     btn.addEventListener('click', function() {
         this.style.transform = 'scale(0.95)';
         setTimeout(() => {
@@ -290,12 +264,26 @@ function initThreeJS() {
         }
     );
 
-    // Animation loop
+        // Resize handler agar renderer 3D responsif terhadap ukuran container
+    function resizeRenderer() {
+        const width = container.clientWidth || 450;
+        const height = container.clientHeight || 450;
+        renderer.setSize(width, height);
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    }
+    resizeRenderer();
+    window.addEventListener('resize', resizeRenderer);
+
+    // Animation loop (menggunakan THREE.Clock agar konsisten di semua device)
+    const clock = new THREE.Clock();
     function animate() {
         requestAnimationFrame(animate);
 
+        const delta = Math.min(clock.getDelta(), 0.1); // batasi agar tidak melompat
+
         if (mixer) {
-            mixer.update(0.016); // Assuming 60fps
+            mixer.update(delta);
         }
 
         // Rotate the model slowly
@@ -332,11 +320,13 @@ function closeModal() {
     modal.classList.remove('flex');
 }
 
-// Close modal when clicking outside
+// Tutup modal (sertifikat & project) saat klik di luar area modal
 document.addEventListener('click', (e) => {
-    const modal = document.getElementById('certificate-modal');
-    if (e.target === modal) {
+    if (e.target === document.getElementById('certificate-modal')) {
         closeModal();
+    }
+    if (e.target === document.getElementById('project-modal')) {
+        closeProjectModal();
     }
 });
 
@@ -358,14 +348,6 @@ function closeProjectModal() {
     modal.classList.remove('flex');
 }
 
-// Close project modal when clicking outside
-document.addEventListener('click', (e) => {
-    const modal = document.getElementById('project-modal');
-    if (e.target === modal) {
-        closeProjectModal();
-    }
-});
-
 // Carousel functionality for project images
 function initCarousels() {
     const carousels = document.querySelectorAll('.carousel');
@@ -385,11 +367,38 @@ function initCarousels() {
             showSlide(currentSlide);
         }
 
-        // Auto-rotate every 3 seconds
-        setInterval(nextSlide, 3000);
+        // Auto-rotate setiap 3 detik, hanya berjalan saat carousel terlihat di layar
+                let intervalId = null;
 
-        // Show first slide initially
-        showSlide(0);
+                function startAutoRotate() {
+                    if (intervalId) return;
+                    intervalId = setInterval(nextSlide, 3000);
+                }
+
+                function stopAutoRotate() {
+                    if (intervalId) {
+                        clearInterval(intervalId);
+                        intervalId = null;
+                    }
+                }
+
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                startAutoRotate();
+                            } else {
+                                stopAutoRotate();
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(carousel);
+                } else {
+                    startAutoRotate();
+                }
+
+                // Show first slide initially
+                showSlide(0);
     });
 }
 
@@ -399,17 +408,15 @@ window.addEventListener('load', initCarousels);
 // Show all certificates
 document.getElementById('show-all-btn').addEventListener('click', () => {
     const grid = document.getElementById('certificate-grid');
-    const additionalCertificates = [
-        { img: 'images/sertifikat/5.jpg', title: 'ICITACS', desc: 'International Conference On Information Technology And Advanced Computer Sciance' },
-        { img: 'images/sertifikat/4.jpg', title: 'Sentimeter', desc: 'AI-Powered Cyber Defense : Revolutionizing Security In The Age Of Artificial Intellegence' },
-        { img: 'images/sertifikat/8.jpg', title: 'Sismatik', desc: 'AI In Information Systems: Enhancing Efficence And Innovation' }
+        const additionalCertificates = [
+        { img: 'images/sertifikat/5.jpg', title: 'ICITACS', desc: 'International Conference on Information Technology and Advanced Computer Science' },
+        { img: 'images/sertifikat/8.jpg', title: 'Sentimeter', desc: 'AI-Powered Cyber Defense: Revolutionizing Security in the Age of Artificial Intelligence' },
+        { img: 'images/sertifikat/3.jpg', title: 'Sismatik', desc: 'AI in Information Systems: Enhancing Efficiency and Innovation' }
     ];
 
-    additionalCertificates.forEach((cert, index) => {
+    additionalCertificates.forEach((cert) => {
         const certDiv = document.createElement('div');
-        certDiv.className = 'bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-left';
-        certDiv.setAttribute('data-aos', 'zoom-in');
-        certDiv.setAttribute('data-aos-delay', (600 + index * 100).toString());
+        certDiv.className = 'bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-up';
         certDiv.innerHTML = `
             <img src="${cert.img}" alt="${cert.title}" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('${cert.img}', '${cert.title}', '${cert.desc}')">
             <h3 class="text-xl font-bold mb-2">${cert.title}</h3>
