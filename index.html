@@ -15,6 +15,8 @@
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </head>
 
 <body class="bg-[#030518] text-white font-sans pt-16">
@@ -56,7 +58,7 @@
     <div class="md:w-1/2 animate-slide-up" data-aos="fade-right">
       <h2 class="text-cyan-400 font-semibold mb-2">HELLO</h2>
             <h1 id="welcome-title" class="text-5xl md:text-6xl font-extrabold mb-4">WELCOME TO MY PORTFOLIO</h1>
-      <p class="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-6" id="profession" style="text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;">Graphic Designer, Web Developer, Network Engineer, IoT Engineer</p>
+      <p class="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-6" id="profession" style="text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;">Graphic Designer, Web Developer, Network Engineer, IoT Engineer, Digital Marketing, Administration</p>
       <p class="text-gray-300 leading-relaxed mb-6">
         I am a Graphic Designer, Web Developer, Network Engineer, and IoT Engineer who is passionate about technology.
       </p>
@@ -98,13 +100,14 @@
       <h2 class="text-cyan-400 font-semibold mb-2">HELLO, I'M</h2>
       <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-cyan-600" style="text-shadow: 0 0 10px #ffffff, 0 0 20px #fafbfb, 0 0 30px #ffffff;">M. RIFKI RIVALDI</h1>
         <p class="text-gray-300 leading-relaxed mb-6 max-w-3xl text-lg">
-          Saya seorang mahasiswa Teknik Informatika di Universitas Nusa Putra yang sangat tertarik dengan bidang jaringan komputer dan pengembangan teknologi informasi. Saat ini saya sedang mempelajari konsep serta penerapan jaringan, pengamanan jaringan, dan pengintegrasian sistem berbasis IoT. Saya sangat termotivasi untuk belajar, mampu bekerja sama dalam tim, dan berkomitmen untuk terus meningkatkan kemampuan teknis dan profesional di bidang IT.
+        Profesional di bidang Teknologi Informasi, Web Development, administrasi e-commerce, dan pengelolaan data. Berpengalaman dalam pengembangan berbagai website, pengelolaan serta monitoring data operasional, dan pemanfaatan teknologi digital untuk mendukung proses bisnis. Memiliki kemampuan dalam HTML, CSS, JavaScript, pengelolaan database, Google Spreadsheet, serta berbagai tools dan platform digital. Terbiasa melakukan analisis data, troubleshooting, dokumentasi, dan pengembangan solusi berbasis teknologi dengan ketelitian tinggi. Mampu bekerja secara mandiri maupun dalam tim serta memiliki kemampuan adaptasi dan problem solving yang baik.
         </p>
 
         <div class="flex flex-col md:flex-row gap-4 items-center">
           <div class="flex gap-4">
-            <a href="https://drive.google.com/file/d/1XCyIfsT1hZT-G4m71-WjyEKcSomVwHjB/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
+                        <a href="https://drive.google.com/file/d/1hJViwS3L62vyGMZkTJp3L9BaOtawLG6c/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
             <a href="#projects" class="border border-cyan-400 hover:bg-cyan-500 hover:text-white px-5 py-2 rounded-lg transition-all hover:scale-110 font-bold">View Projects</a>
+            <button type="button" onclick="exportToPowerPoint()" class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold inline-flex items-center gap-2">Export to PowerPoint</button>
           </div>
           <!-- Social Media Icons -->
           <div class="flex gap-4">
@@ -204,7 +207,28 @@
         </div>
         <h3 class="text-xl font-bold mb-2 text-cyan-300">Portfolio Website</h3>
         <p class="text-gray-400 text-sm mb-4">Website portofolio pribadi dengan animasi 3D, desain responsif, dan fitur interaktif menggunakan HTML, CSS, JavaScript, dan Three.js.</p>
-        <a href="https://portofolio-murex-kappa-70.vercel.app/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+                <a href="https://portofolio-murex-kappa-70.vercel.app/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+      </div>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="300">
+        <img src="images/project/harriselectronic.png" alt="Harris Electronic" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/harriselectronic.png', 'Harris Electronic')">
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">Harris Electronic</h3>
+        <p class="text-gray-400 text-sm mb-4">Website company profile Harris Electronic yang menampilkan profil perusahaan, produk, dan layanan secara profesional.</p>
+        <a href="https://www.harriselectronic.store/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+      </div>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="400">
+        <img src="images/project/parkir.png" alt="Sistem Parkir Otomatis" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/parkir.png', 'Sistem Parkir Otomatis')">
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">Sistem Parkir Otomatis</h3>
+        <p class="text-gray-400 text-sm mb-4">Pengembangan Sistem Parkir Otomatis Berbasis IoT di Universitas Nusa Putra dengan Integrasi Sensor Ultrasonik dan RFID untuk Optimalisasi Waktu Akses.</p>
+        <a href="https://drive.google.com/file/d/1qJvBsqJtzNZjszEt8CjiS61SxQkUjxwg/view?usp=drive_link" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+      </div>
+      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="500">
+        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/packingrecord1.jpeg', 'AppSheet Packing Record')">
+          <img src="images/project/packingrecord1.jpeg" alt="Packing Record 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+          <img src="images/project/packingrecord2.jpeg" alt="Packing Record 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+        </div>
+        <h3 class="text-xl font-bold mb-2 text-cyan-300">AppSheet Packing Record</h3>
+        <p class="text-gray-400 text-sm mb-4">Aplikasi packing record berbasis AppSheet untuk pencatatan dan manajemen data packing secara digital, cepat, dan efisien.</p>
+        <a href="https://drive.google.com/file/d/1tDL0UeVOy1pNhHrBCh2eJ0foue_NCEwn/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
       </div>
     </div>
   </section>
