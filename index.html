@@ -1,353 +1,362 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M. RIFKI RIVALDI | Portfolio</title>
-  <meta name="description" content="Portfolio M. Rifki Rivaldi — Graphic Designer, Web Developer, Network Engineer, dan IoT Engineer.">
-  <meta name="author" content="M. Rifki Rivaldi">
-  <link rel="stylesheet" href="styles.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M. RIFKI RIVALDI | Portfolio</title>
+    <meta name="description" content="Portfolio M. Rifki Rivaldi — Graphic Designer, Web Developer, Network Engineer, dan IoT Engineer.">
+    <meta name="author" content="M. Rifki Rivaldi">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/4712/4712107.png">
+  </head>
 
-<body class="bg-[#030518] text-white font-sans pt-16">
+  <body class="bg-[#030518] text-white font-sans pt-16">
 
-  <!-- Navbar -->
-  <nav class="fixed top-0 left-0 w-full bg-[#030518]/90 backdrop-blur border-b border-blue-700/30 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4">
-        <div class="text-2xl font-bold text-cyan-400">M. RIFKI RIVALDI</div>
-        <div class="hidden md:flex space-x-8">
-          <a href="#home" class="font-bold hover:text-cyan-400 transition-colors">Home</a>
-          <a href="#about" class="font-bold hover:text-cyan-400 transition-colors">About</a>
-          <a href="#skills" class="font-bold hover:text-cyan-400 transition-colors">Skills</a>
-          <a href="#projects" class="font-bold hover:text-cyan-400 transition-colors">Projects</a>
-          <a href="#certificates" class="font-bold hover:text-cyan-400 transition-colors">Certificates</a>
-          <a href="#contact" class="font-bold hover:text-cyan-400 transition-colors">Contact</a>
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-[#030518]/90 backdrop-blur border-b border-blue-700/30 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <div class="text-2xl font-bold text-cyan-400">M. RIFKI RIVALDI</div>
+          <div class="hidden md:flex space-x-8">
+            <a href="#home" class="font-bold hover:text-cyan-400 transition-colors">Home</a>
+            <a href="#about" class="font-bold hover:text-cyan-400 transition-colors">About</a>
+            <a href="#skills" class="font-bold hover:text-cyan-400 transition-colors">Skills</a>
+            <a href="#projects" class="font-bold hover:text-cyan-400 transition-colors">Projects</a>
+            <a href="#certificates" class="font-bold hover:text-cyan-400 transition-colors">Certificates</a>
+            <a href="#contact" class="font-bold hover:text-cyan-400 transition-colors">Contact</a>
+          </div>
+          <button class="md:hidden" id="menu-toggle">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
         </div>
-        <button class="md:hidden" id="menu-toggle">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
       </div>
-    </div>
-    <!-- Mobile Menu -->
-    <ul class="md:hidden absolute top-full left-0 w-full bg-[#030518]/95 backdrop-blur border-b border-blue-700/30 flex-col gap-4 py-4 px-8 hidden" id="mobile-menu">
-      <li><a href="#home" class="block font-bold hover:text-cyan-400 transition-colors py-2">Home</a></li>
-      <li><a href="#about" class="block font-bold hover:text-cyan-400 transition-colors py-2">About</a></li>
-      <li><a href="#skills" class="block font-bold hover:text-cyan-400 transition-colors py-2">Skills</a></li>
-      <li><a href="#projects" class="block font-bold hover:text-cyan-400 transition-colors py-2">Projects</a></li>
-      <li><a href="#certificates" class="block font-bold hover:text-cyan-400 transition-colors py-2">Certificates</a></li>
-      <li><a href="#contact" class="block font-bold hover:text-cyan-400 transition-colors py-2">Contact</a></li>
-    </ul>
-  </nav>
+      <!-- Mobile Menu -->
+      <ul class="md:hidden absolute top-full left-0 w-full bg-[#030518]/95 backdrop-blur border-b border-blue-700/30 flex-col gap-4 py-4 px-8 hidden" id="mobile-menu">
+        <li><a href="#home" class="block font-bold hover:text-cyan-400 transition-colors py-2">Home</a></li>
+        <li><a href="#about" class="block font-bold hover:text-cyan-400 transition-colors py-2">About</a></li>
+        <li><a href="#skills" class="block font-bold hover:text-cyan-400 transition-colors py-2">Skills</a></li>
+        <li><a href="#projects" class="block font-bold hover:text-cyan-400 transition-colors py-2">Projects</a></li>
+        <li><a href="#certificates" class="block font-bold hover:text-cyan-400 transition-colors py-2">Certificates</a></li>
+        <li><a href="#contact" class="block font-bold hover:text-cyan-400 transition-colors py-2">Contact</a></li>
+      </ul>
+    </nav>
 
-
-  <!-- Hero Section -->
-  <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between px-10 md:px-24 py-16 min-h-screen">
-    <div class="md:w-1/2 animate-slide-up" data-aos="fade-right">
-      <h2 class="text-cyan-400 font-semibold mb-2">HELLO</h2>
-            <h1 id="welcome-title" class="text-5xl md:text-6xl font-extrabold mb-4">WELCOME TO MY PORTFOLIO</h1>
-      <p class="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-6" id="profession" style="text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;">Graphic Designer, Web Developer, Network Engineer, IoT Engineer, Digital Marketing, Administration</p>
-      <p class="text-gray-300 leading-relaxed mb-6">
-        I am a Graphic Designer, Web Developer, Network Engineer, and IoT Engineer who is passionate about technology.
-      </p>
-      <p class="italic text-gray-400 mb-6">"Whoever strives shall succeed."</p>
-      <!-- Social Media Icons -->
-      <div class="flex gap-4 mt-6">
-        <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="hover:scale-110 transition-transform">
-          <img src="images/logo/logo github.png" alt="GitHub" class="w-8 h-8">
-        </a>
-        <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="hover:scale-110 transition-transform">
-          <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-8 h-8">
-        </a>
-        <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="hover:scale-110 transition-transform">
-          <img src="images/logo/logo ig.png" alt="Instagram" class="w-8 h-8">
-        </a>
-      </div>
-
-    </div>
-
-    <div class="md:w-1/2 flex justify-center mb-10 md:mb-0 animate-bounce-in" data-aos="fade-left">
-      <!-- 3D Robot Model -->
-      <div id="robot-container" class="w-[450px] h-[450px] relative"></div>
-    </div>
-  </section>
-
-
-
-  <!-- About Section -->
-  <section id="about" class="px-10 md:px-24 py-16 bg-[#05072B] border-t border-blue-700/30 min-h-screen flex flex-col justify-center relative overflow-hidden" data-aos="fade-up">
-  <!-- Full Width ABOUT ME Banner Bottom -->
-  <div class="w-full py-4 overflow-hidden relative mb-8">
-    <div class="text-4xl md:text-6xl font-bold text-center slide-right-full whitespace-nowrap" style="font-family: 'Hyper Oxide';">
-      <span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span>
-    </div>
-  </div>
-    <h1 class="text-3xl font-bold text-cyan-400 mb-6 animate-fade-in text-center">About Me</h1>
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="order-2 md:order-1">
-      <h2 class="text-cyan-400 font-semibold mb-2">HELLO, I'M</h2>
-      <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-cyan-600" style="text-shadow: 0 0 10px #ffffff, 0 0 20px #fafbfb, 0 0 30px #ffffff;">M. RIFKI RIVALDI</h1>
-        <p class="text-gray-300 leading-relaxed mb-6 max-w-3xl text-lg">
-        Profesional di bidang Teknologi Informasi, Web Development, administrasi e-commerce, dan pengelolaan data. Berpengalaman dalam pengembangan berbagai website, pengelolaan serta monitoring data operasional, dan pemanfaatan teknologi digital untuk mendukung proses bisnis. Memiliki kemampuan dalam HTML, CSS, JavaScript, pengelolaan database, Google Spreadsheet, serta berbagai tools dan platform digital. Terbiasa melakukan analisis data, troubleshooting, dokumentasi, dan pengembangan solusi berbasis teknologi dengan ketelitian tinggi. Mampu bekerja secara mandiri maupun dalam tim serta memiliki kemampuan adaptasi dan problem solving yang baik.
+    <!-- Hero Section -->
+    <section id="home" class="flex flex-col-reverse md:flex-row items-center justify-between px-10 md:px-24 py-16 min-h-screen">
+      <div class="md:w-1/2 animate-slide-up" data-aos="fade-right">
+        <h2 class="text-cyan-400 font-semibold mb-2">HELLO</h2>
+        <h1 id="welcome-title" class="text-5xl md:text-6xl font-extrabold mb-4">WELCOME TO MY PORTFOLIO</h1>
+        <p class="text-2xl md:text-3xl font-bold text-white leading-relaxed mb-6" id="profession" style="text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 30px #00FFFF;">Graphic Designer, Web Developer, Network Engineer, IoT Engineer, Digital Marketing, Administration</p>
+        <p class="text-gray-300 leading-relaxed mb-6">
+          I am a Graphic Designer, Web Developer, Network Engineer, and IoT Engineer who is passionate about technology.
         </p>
+        <p class="italic text-gray-400 mb-6">"Whoever strives shall succeed."</p>
+        <!-- Social Media Icons -->
+        <div class="flex gap-4 mt-6">
+          <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="hover:scale-110 transition-transform">
+            <img src="images/logo/logo github.png" alt="GitHub" class="w-8 h-8">
+          </a>
+          <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="hover:scale-110 transition-transform">
+            <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-8 h-8">
+          </a>
+          <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="hover:scale-110 transition-transform">
+            <img src="images/logo/logo ig.png" alt="Instagram" class="w-8 h-8">
+          </a>
+        </div>
 
-        <div class="flex flex-col md:flex-row gap-4 items-center">
-          <div class="flex gap-4">
-                        <a href="https://drive.google.com/file/d/1hJViwS3L62vyGMZkTJp3L9BaOtawLG6c/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
-            <a href="#projects" class="border border-cyan-400 hover:bg-cyan-500 hover:text-white px-5 py-2 rounded-lg transition-all hover:scale-110 font-bold">View Projects</a>
-            <button type="button" onclick="exportToPowerPoint()" class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold inline-flex items-center gap-2">Export to PowerPoint</button>
+      </div>
+
+      <div class="md:w-1/2 flex justify-center mb-10 md:mb-0 animate-bounce-in" data-aos="fade-left">
+        <!-- 3D Robot Model -->
+        <div id="robot-container" class="relative"></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="px-10 md:px-24 py-16 bg-[#05072B] border-t border-blue-700/30 min-h-screen flex flex-col justify-center relative overflow-hidden" data-aos="fade-up">
+      <!-- Full Width ABOUT ME Banner Bottom -->
+      <div class="w-full py-4 overflow-hidden relative mb-8">
+        <div class="text-4xl md:text-6xl font-bold text-center slide-right-full whitespace-nowrap" style="font-family: 'Hyper Oxide';">
+          <span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span>
+        </div>
+      </div>
+      <h1 class="text-3xl font-bold text-cyan-400 mb-6 animate-fade-in text-center">About Me</h1>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div class="order-2 md:order-1">
+          <h2 class="text-cyan-400 font-semibold mb-2">HELLO, I'M</h2>
+          <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-cyan-600" style="text-shadow: 0 0 10px #ffffff, 0 0 20px #fafbfb, 0 0 30px #ffffff;">M. RIFKI RIVALDI</h1>
+          <p class="text-gray-300 leading-relaxed mb-6 max-w-3xl text-lg">
+            Profesional di bidang Teknologi Informasi, Web Development, administrasi e-commerce, dan pengelolaan data. Berpengalaman dalam pengembangan berbagai website, pengelolaan serta monitoring data operasional, dan pemanfaatan teknologi digital untuk mendukung proses bisnis. Memiliki kemampuan dalam HTML, CSS, JavaScript, pengelolaan database, Google Spreadsheet, serta berbagai tools dan platform digital. Terbiasa melakukan analisis data, troubleshooting, dokumentasi, dan pengembangan solusi berbasis teknologi dengan ketelitian tinggi. Mampu bekerja secara mandiri maupun dalam tim serta memiliki kemampuan adaptasi dan problem solving yang baik.
+          </p>
+
+          <div class="flex flex-col md:flex-row gap-4 items-center">
+            <div class="flex gap-4">
+              <a href="https://drive.google.com/file/d/1hJViwS3L62vyGMZkTJp3L9BaOtawLG6c/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold">Download CV</a>
+              <a href="#projects" class="border border-cyan-400 hover:bg-cyan-500 hover:text-white px-5 py-2 rounded-lg transition-all hover:scale-110 font-bold">View Projects</a>
+              <button type="button" onclick="exportToPowerPoint()" class="bg-purple-600 hover:bg-purple-500 px-5 py-2 rounded-lg text-white transition-all hover:scale-110 font-bold inline-flex items-center gap-2">Export to PowerPoint</button>
+            </div>
+            <!-- Social Media Icons -->
+            <div class="flex gap-4">
+              <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="hover:scale-110 transition-transform">
+                <img src="images/logo/logo github.png" alt="GitHub" class="w-8 h-8">
+              </a>
+              <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="hover:scale-110 transition-transform">
+                <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-8 h-8">
+              </a>
+              <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="hover:scale-110 transition-transform">
+                <img src="images/logo/logo ig.png" alt="Instagram" class="w-8 h-8">
+              </a>
+            </div>
           </div>
-          <!-- Social Media Icons -->
-          <div class="flex gap-4">
-            <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="hover:scale-110 transition-transform">
-              <img src="images/logo/logo github.png" alt="GitHub" class="w-8 h-8">
-            </a>
-            <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="hover:scale-110 transition-transform">
-              <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-8 h-8">
-            </a>
-            <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="hover:scale-110 transition-transform">
-              <img src="images/logo/logo ig.png" alt="Instagram" class="w-8 h-8">
-            </a>
+        </div>
+        <div class="flex justify-center order-1 md:order-2">
+          <div class="relative">
+            <img src="images/foto_diri_nobg.png" alt="M. Rifki Rivaldi" class="w-96 h-96 shadow-lg hover:scale-110 transition-transform object-contain animate-float">
+            <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#05072B] to-transparent"></div>
+            <div class="absolute inset-0 bg-cyan-400 opacity-20 animate-ping"></div>
+            <div class="absolute -top-4 -left-4 w-8 h-8 bg-cyan-400 rounded-full animate-bounce"></div>
+            <div class="absolute -bottom-4 -right-4 w-6 h-6 bg-cyan-400 rounded-full animate-pulse"></div>
           </div>
         </div>
       </div>
-      <div class="flex justify-center order-1 md:order-2">
-        <div class="relative">
-          <img src="images/foto_diri_nobg.png" alt="M. Rifki Rivaldi" class="w-96 h-96 shadow-lg hover:scale-110 transition-transform object-contain animate-float">
-          <div class="absolute bottom-0 left-0 w-full h-1/4 bg-gradient-to-t from-[#05072B] to-transparent"></div>
-          <div class="absolute inset-0 bg-cyan-400 opacity-20 animate-ping"></div>
-          <div class="absolute -top-4 -left-4 w-8 h-8 bg-cyan-400 rounded-full animate-bounce"></div>
-          <div class="absolute -bottom-4 -right-4 w-6 h-6 bg-cyan-400 rounded-full animate-pulse"></div>
+      <!-- Full Width ABOUT ME Banner Bottom -->
+      <div class="w-full py-4 overflow-hidden relative mb-8">
+        <div class="text-4xl md:text-6xl font-bold text-center slide-right-full whitespace-nowrap" style="font-family: 'Hyper Oxide';">
+          <span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span>
         </div>
       </div>
-    </div>
-  <!-- Full Width ABOUT ME Banner Bottom -->
-  <div class="w-full py-4 overflow-hidden relative mb-8">
-    <div class="text-4xl md:text-6xl font-bold text-center slide-right-full whitespace-nowrap" style="font-family: 'Hyper Oxide';">
-      <span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span><span class="text-cyan-400">ABOUT </span><span class="text-white">ME </span>
-    </div>
-  </div>
-  </section>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="px-10 md:px-24 py-16 bg-[#030518] min-h-screen flex flex-col justify-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Skills</h2>
+    <!-- Skills Section -->
+    <section id="skills" class="px-10 md:px-24 py-16 bg-[#030518] min-h-screen flex flex-col justify-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Skills</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in">
-        <div class="skill-icon text-4xl mb-4">🎨</div>
-        <h3 class="text-xl font-bold mb-2">Graphic Design</h3>
-        <p class="text-gray-400 text-sm">CorelDraw, Photoshop, Figma</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="100">
-        <div class="skill-icon text-4xl mb-4">🌐</div>
-        <h3 class="text-xl font-bold mb-2">Network Engineering</h3>
-        <p class="text-gray-400 text-sm">Cisco, Routing, Security</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="200">
-        <div class="skill-icon text-4xl mb-4">💻</div>
-        <h3 class="text-xl font-bold mb-2">Web Development</h3>
-        <p class="text-gray-400 text-sm">HTML, CSS, JavaScript, React</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="300">
-        <div class="skill-icon text-4xl mb-4">🤖</div>
-        <h3 class="text-xl font-bold mb-2">IoT Engineer</h3>
-        <p class="text-gray-400 text-sm">Arduino, ESP 32, Sensors</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="400">
-        <div class="skill-icon text-4xl mb-4">🎯</div>
-        <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
-        <p class="text-gray-400 text-sm">Figma, Adobe XD, Sketch</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="500">
-        <div class="skill-icon text-4xl mb-4">📱</div>
-        <h3 class="text-xl font-bold mb-2">Mobile Apps</h3>
-        <p class="text-gray-400 text-sm">Flutter, React Native</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="px-10 md:px-24 py-16 bg-[#05072B] min-h-screen flex flex-col justify-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Projects</h2>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="flip-left">
-        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/kknfeed1.jpg', 'Feed IG KKN Desa Cikadu')">
-          <img src="images/project/kknfeed1.jpg" alt="Feed IG KKN Desa Cikadu 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
-          <img src="images/project/kknfeed2.jpg" alt="Feed IG KKN Desa Cikadu 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
-          <img src="images/project/kknfeed3.jpg" alt="Feed IG KKN Desa Cikadu 3" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in">
+          <div class="skill-icon text-4xl mb-4">🎨</div>
+          <h3 class="text-xl font-bold mb-2">Graphic Design</h3>
+          <p class="text-gray-400 text-sm">CorelDraw, Photoshop, Figma</p>
         </div>
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">Feed IG KKN Desa Cikadu</h3>
-        <p class="text-gray-400 text-sm mb-4">Proyek feed Instagram selama satu bulan untuk KKN Desa Cikadu menggunakan CorelDraw dan Canva untuk desain grafis yang menarik.</p>
-        <a href="https://www.instagram.com/kkn.cikadu2025/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
-      </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="100">
-        <img src="images/project/goss.png" alt="Go Pesantren" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/goss.png', 'Go Pesantren')">
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">Go Pesantren</h3>
-        <p class="text-gray-400 text-sm mb-4">Website rekomendasi pesantren terbaik di Indonesia, dibangun dengan HTML, CSS, Python, dan API Gemini untuk pencarian cerdas.</p>
-        <a href="https://youtu.be/WiSeUj2SIU8?si=O1fh90BGxziF_1Xj" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
-      </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="200">
-        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/portoss.png', 'Portfolio Website')">
-          <img src="images/project/portoss.png" alt="Portfolio Website 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
-          <img src="images/project/portoss2.png" alt="Portfolio Website 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="100">
+          <div class="skill-icon text-4xl mb-4">🌐</div>
+          <h3 class="text-xl font-bold mb-2">Network Engineering</h3>
+          <p class="text-gray-400 text-sm">Cisco, Routing, Security</p>
         </div>
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">Portfolio Website</h3>
-        <p class="text-gray-400 text-sm mb-4">Website portofolio pribadi dengan animasi 3D, desain responsif, dan fitur interaktif menggunakan HTML, CSS, JavaScript, dan Three.js.</p>
-                <a href="https://portofolio-murex-kappa-70.vercel.app/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
-      </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="300">
-        <img src="images/project/harriselectronic.png" alt="Harris Electronic" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/harriselectronic.png', 'Harris Electronic')">
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">Harris Electronic</h3>
-        <p class="text-gray-400 text-sm mb-4">Website company profile Harris Electronic yang menampilkan profil perusahaan, produk, dan layanan secara profesional.</p>
-        <a href="https://www.harriselectronic.store/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
-      </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="400">
-        <img src="images/project/parkir.png" alt="Sistem Parkir Otomatis" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/parkir.png', 'Sistem Parkir Otomatis')">
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">Sistem Parkir Otomatis</h3>
-        <p class="text-gray-400 text-sm mb-4">Pengembangan Sistem Parkir Otomatis Berbasis IoT di Universitas Nusa Putra dengan Integrasi Sensor Ultrasonik dan RFID untuk Optimalisasi Waktu Akses.</p>
-        <a href="https://drive.google.com/file/d/1qJvBsqJtzNZjszEt8CjiS61SxQkUjxwg/view?usp=drive_link" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
-      </div>
-      <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="500">
-        <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/packingrecord1.jpeg', 'AppSheet Packing Record')">
-          <img src="images/project/packingrecord1.jpeg" alt="Packing Record 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
-          <img src="images/project/packingrecord2.jpeg" alt="Packing Record 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="200">
+          <div class="skill-icon text-4xl mb-4">💻</div>
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <p class="text-gray-400 text-sm">HTML, CSS, JavaScript, React</p>
         </div>
-        <h3 class="text-xl font-bold mb-2 text-cyan-300">AppSheet Packing Record</h3>
-        <p class="text-gray-400 text-sm mb-4">Aplikasi packing record berbasis AppSheet untuk pencatatan dan manajemen data packing secara digital, cepat, dan efisien.</p>
-        <a href="https://drive.google.com/file/d/1tDL0UeVOy1pNhHrBCh2eJ0foue_NCEwn/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="300">
+          <div class="skill-icon text-4xl mb-4">🤖</div>
+          <h3 class="text-xl font-bold mb-2">IoT Engineer</h3>
+          <p class="text-gray-400 text-sm">Arduino, ESP 32, Sensors</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="400">
+          <div class="skill-icon text-4xl mb-4">🎯</div>
+          <h3 class="text-xl font-bold mb-2">UI/UX Design</h3>
+          <p class="text-gray-400 text-sm">Figma, Adobe XD, Sketch</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20" data-aos="zoom-in" data-aos-delay="500">
+          <div class="skill-icon text-4xl mb-4">📱</div>
+          <h3 class="text-xl font-bold mb-2">Mobile Apps</h3>
+          <p class="text-gray-400 text-sm">Flutter, React Native</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Certificates Section -->
-  <section id="certificates" class="px-10 md:px-24 py-16 bg-[#030518] min-h-screen flex flex-col justify-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Certificates</h2>
+    <!-- Projects Section -->
+    <section id="projects" class="px-10 md:px-24 py-16 bg-[#05072B] min-h-screen flex flex-col justify-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Projects</h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="certificate-grid">
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-left" data-aos="zoom-in">
-        <img src="images/sertifikat/9.jpg" alt="Certificate 1" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/9.jpg', 'Python', 'Information Technology Specialist')">
-        <h3 class="text-xl font-bold mb-2">Python</h3>
-        <p class="text-gray-400 text-sm">Information Technology Specialis</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="flip-left">
+          <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/kknfeed1.jpg', 'Feed IG KKN Desa Cikadu')">
+            <img src="images/project/kknfeed1.jpg" alt="Feed IG KKN Desa Cikadu 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+            <img src="images/project/kknfeed2.jpg" alt="Feed IG KKN Desa Cikadu 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+            <img src="images/project/kknfeed3.jpg" alt="Feed IG KKN Desa Cikadu 3" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">Feed IG KKN Desa Cikadu</h3>
+          <p class="text-gray-400 text-sm mb-4">Proyek feed Instagram selama satu bulan untuk KKN Desa Cikadu menggunakan CorelDraw dan Canva untuk desain grafis yang menarik.</p>
+          <a href="https://www.instagram.com/kkn.cikadu2025/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/project/goss.png" alt="Go Pesantren" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/goss.png', 'Go Pesantren')">
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">Go Pesantren</h3>
+          <p class="text-gray-400 text-sm mb-4">Website rekomendasi pesantren terbaik di Indonesia, dibangun dengan HTML, CSS, Python, dan API Gemini untuk pencarian cerdas.</p>
+          <a href="https://youtu.be/WiSeUj2SIU8?si=O1fh90BGxziF_1Xj" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="200">
+          <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/portoss.png', 'Portfolio Website')">
+            <img src="images/project/portoss.png" alt="Portfolio Website 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+            <img src="images/project/portoss2.png" alt="Portfolio Website 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">Portfolio Website</h3>
+          <p class="text-gray-400 text-sm mb-4">Website portofolio pribadi dengan animasi 3D, desain responsif, dan fitur interaktif menggunakan HTML, CSS, JavaScript, dan Three.js.</p>
+          <a href="https://portofolio-murex-kappa-70.vercel.app/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="300">
+          <img src="images/project/harriselectronic.png" alt="Harris Electronic" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/harriselectronic.png', 'Harris Electronic')">
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">Harris Electronic</h3>
+          <p class="text-gray-400 text-sm mb-4">Website company profile Harris Electronic yang menampilkan profil perusahaan, produk, dan layanan secara profesional.</p>
+          <a href="https://www.harriselectronic.store/" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:rotate-1 animate-pulse-slow" data-aos="zoom-in" data-aos-delay="400">
+          <img src="images/project/parkir.png" alt="Sistem Parkir Otomatis" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer animate-float" onclick="openProjectModal('images/project/parkir.png', 'Sistem Parkir Otomatis')">
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">Sistem Parkir Otomatis</h3>
+          <p class="text-gray-400 text-sm mb-4">Pengembangan Sistem Parkir Otomatis Berbasis IoT di Universitas Nusa Putra dengan Integrasi Sensor Ultrasonik dan RFID untuk Optimalisasi Waktu Akses.</p>
+          <a href="https://drive.google.com/file/d/1qJvBsqJtzNZjszEt8CjiS61SxQkUjxwg/view?usp=drive_link" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
+        <div class="bg-[#030518] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 hover:-rotate-1 animate-pulse-slow" data-aos="slide-up" data-aos-delay="500">
+          <div class="carousel w-full h-48 rounded-lg mb-4 overflow-hidden relative cursor-pointer animate-float" onclick="openProjectModal('images/project/packingrecord1.jpeg', 'AppSheet Packing Record')">
+            <img src="images/project/packingrecord1.jpeg" alt="Packing Record 1" class="carousel-slide w-full h-full object-cover absolute transition-opacity duration-1000">
+            <img src="images/project/packingrecord2.jpeg" alt="Packing Record 2" class="carousel-slide w-full h-full object-cover absolute opacity-0 transition-opacity duration-1000">
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-cyan-300">AppSheet Packing Record</h3>
+          <p class="text-gray-400 text-sm mb-4">Aplikasi packing record berbasis AppSheet untuk pencatatan dan manajemen data packing secara digital, cepat, dan efisien.</p>
+          <a href="https://drive.google.com/file/d/1tDL0UeVOy1pNhHrBCh2eJ0foue_NCEwn/view?usp=sharing" target="_blank" class="bg-cyan-500 hover:bg-cyan-600 px-4 py-2 rounded-lg text-white font-semibold transition-all hover:scale-105 inline-block animate-glow">View Details →</a>
+        </div>
       </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-up" data-aos="zoom-in" data-aos-delay="100">
-        <img src="images/sertifikat/6.jpg" alt="Certificate 2" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/6.jpg', 'VSGA', 'Perekayasa Perangkat Internet of Things — Vocational School Graduate Academy, Digital Talent Scholarship 2025')">
-        <h3 class="text-xl font-bold mb-2">VSGA</h3>
-        <p class="text-gray-400 text-sm">Perekayasa Perangkat Internet of Things — Vocational School Graduate Academy, Digital Talent Scholarship 2025</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-right" data-aos="zoom-in" data-aos-delay="200">
-        <img src="images/sertifikat/4.jpg" alt="Certificate 3" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/4.jpg', 'Oracle Academy', 'Database Foundations - Bahasa Indonesia')">
-        <h3 class="text-xl font-bold mb-2">Oracle Academy</h3>
-        <p class="text-gray-400 text-sm">Database Foundations - Bahasa Indonesia</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-left" data-aos="zoom-in" data-aos-delay="300">
-        <img src="images/sertifikat/2.jpg" alt="Certificate 4" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/2.jpg', 'AWS Academy', 'AWS Academy Cloud Foundations')">
-        <h3 class="text-xl font-bold mb-2">AWS Academy</h3>
-        <p class="text-gray-400 text-sm">AWS Academy Cloud Foundations</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-up" data-aos="zoom-in" data-aos-delay="400">
-        <img src="images/sertifikat/0.jpg" alt="Certificate 5" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/0.jpg', 'Workshop Teknik Informatika', 'Keamanan Jaringan Dan Proteksi Terhadap Serangan Cyber')">
-        <h3 class="text-xl font-bold mb-2">Workshop Teknik Informatika</h3>
-        <p class="text-gray-400 text-sm">Keamanan Jaringan Dan Proteksi Terhadap Serangan Cyber</p>
-      </div>
-      <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-right" data-aos="zoom-in" data-aos-delay="500">
-        <img src="images/sertifikat/10.jpg" alt="Certificate 6" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/10.jpg', 'Workshop Teknik Elektro', 'AIoT dan Integrasi Neural Network pada Mikrokontroler')">
-        <h3 class="text-xl font-bold mb-2">Workshop Teknik Elektro</h3>
-        <p class="text-gray-400 text-sm">AIoT dan Integrasi Neural Network pada Mikrokontroler</p>
-      </div>
-    </div>
-    <div class="text-center mt-8">
-      <button id="show-all-btn" class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">Show All</button>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="px-10 md:px-24 py-16 bg-[#05072B] min-h-screen flex flex-col justify-center" data-aos="fade-up">
-    <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Contact Me</h2>
+    <!-- Certificates Section -->
+    <section id="certificates" class="px-10 md:px-24 py-16 bg-[#030518] min-h-screen flex flex-col justify-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Certificates</h2>
 
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="grid grid-cols-3 gap-4" data-aos="fade-right">
-                <a href="mailto:rifki200804@gmail.com" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo email.png" alt="Email" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">rifki200804@gmail.com</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="certificate-grid">
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-left" data-aos="zoom-in">
+          <img src="images/sertifikat/9.jpg" alt="Certificate 1" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/9.jpg', 'Python', 'Information Technology Specialist')">
+          <h3 class="text-xl font-bold mb-2">Python</h3>
+          <p class="text-gray-400 text-sm">Information Technology Specialis</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-up" data-aos="zoom-in" data-aos-delay="100">
+          <img src="images/sertifikat/6.jpg" alt="Certificate 2" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/6.jpg', 'VSGA', 'Perekayasa Perangkat Internet of Things — Vocational School Graduate Academy, Digital Talent Scholarship 2025')">
+          <h3 class="text-xl font-bold mb-2">VSGA</h3>
+          <p class="text-gray-400 text-sm">Perekayasa Perangkat Internet of Things — Vocational School Graduate Academy, Digital Talent Scholarship 2025</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-right" data-aos="zoom-in" data-aos-delay="200">
+          <img src="images/sertifikat/4.jpg" alt="Certificate 3" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/4.jpg', 'Oracle Academy', 'Database Foundations - Bahasa Indonesia')">
+          <h3 class="text-xl font-bold mb-2">Oracle Academy</h3>
+          <p class="text-gray-400 text-sm">Database Foundations - Bahasa Indonesia</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-left" data-aos="zoom-in" data-aos-delay="300">
+          <img src="images/sertifikat/2.jpg" alt="Certificate 4" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/2.jpg', 'AWS Academy', 'AWS Academy Cloud Foundations')">
+          <h3 class="text-xl font-bold mb-2">AWS Academy</h3>
+          <p class="text-gray-400 text-sm">AWS Academy Cloud Foundations</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-up" data-aos="zoom-in" data-aos-delay="400">
+          <img src="images/sertifikat/0.jpg" alt="Certificate 5" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/0.jpg', 'Workshop Teknik Informatika', 'Keamanan Jaringan Dan Proteksi Terhadap Serangan Cyber')">
+          <h3 class="text-xl font-bold mb-2">Workshop Teknik Informatika</h3>
+          <p class="text-gray-400 text-sm">Keamanan Jaringan Dan Proteksi Terhadap Serangan Cyber</p>
+        </div>
+        <div class="bg-[#05072B] p-6 rounded-2xl border border-blue-700/20 hover:scale-110 transition-all hover:shadow-lg hover:shadow-cyan-400/20 animate-slide-in-right" data-aos="zoom-in" data-aos-delay="500">
+          <img src="images/sertifikat/10.jpg" alt="Certificate 6" class="w-full h-48 object-cover rounded-lg mb-4 hover:scale-105 transition-transform cursor-pointer" onclick="openModal('images/sertifikat/10.jpg', 'Workshop Teknik Elektro', 'AIoT dan Integrasi Neural Network pada Mikrokontroler')">
+          <h3 class="text-xl font-bold mb-2">Workshop Teknik Elektro</h3>
+          <p class="text-gray-400 text-sm">AIoT dan Integrasi Neural Network pada Mikrokontroler</p>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <button id="show-all-btn" class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">Show All</button>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="px-10 md:px-24 py-16 bg-[#05072B] min-h-screen flex flex-col justify-center" data-aos="fade-up">
+      <h2 class="text-3xl font-bold text-cyan-400 mb-8 animate-fade-in text-center">Contact Me</h2>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-3 gap-4" data-aos="fade-right">
+          <a href="mailto:rifki200804@gmail.com" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo email.png" alt="Email" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">email</p>
+          </a>
+          <a href="https://wa.me/6281296876716" target="_blank" rel="noopener" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo wa.png" alt="Phone" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">WA</p>
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=Indonesia" target="_blank" rel="noopener" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo maps.png" alt="Location" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">Indonesia</p>
+          </a>
+          <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo github.png" alt="GitHub" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">GitHub</p>
+          </a>
+          <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">LinkedIn</p>
+          </a>
+          <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
+            <img src="images/logo/logo ig.png" alt="Instagram" class="w-12 h-12 mb-2">
+            <p class="text-gray-300 text-sm hidden md:block">Instagram</p>
+          </a>
+        </div>
+        <form id="contact-form" class="space-y-4" data-aos="fade-left" novalidate>
+          <input type="text" id="contact-name" name="name" placeholder="Name" required aria-label="Name" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors">
+          <input type="email" id="contact-email" name="email" placeholder="Email" required aria-label="Email" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors">
+          <textarea id="contact-message" name="message" placeholder="Message" rows="4" required aria-label="Message" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors"></textarea>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <button type="button" id="send-email-btn" class="flex-1 bg-cyan-500 hover:bg-cyan-600 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">✉️ Kirim via Email</button>
+            <button type="button" id="send-wa-btn" class="flex-1 bg-green-500 hover:bg-green-600 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">💬 Kirim via WhatsApp</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#030518] text-center py-6 border-t border-blue-700/30">
+      <p class="text-gray-400 text-sm">© 2025 M. RIFKI RIVALDI. All rights reserved.</p>
+      <div class="flex justify-center gap-6 mt-3 text-cyan-400 text-xl">
+        <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:scale-110 transition-transform">
+          <img src="images/logo/logo linkedin.png" alt="" class="w-5 h-5">
         </a>
-                <a href="https://wa.me/6281296876716" target="_blank" rel="noopener" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo wa.png" alt="Phone" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">081296876716</p>
+        <a href="https://github.com/MRIFKIRIVALDI" target="_blank" rel="noopener" aria-label="GitHub" class="hover:scale-110 transition-transform">
+          <img src="images/logo/logo github.png" alt="" class="w-5 h-5">
         </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=Indonesia" target="_blank" rel="noopener" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo maps.png" alt="Location" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">Indonesia</p>
-        </a>
-        <a href="https://github.com/MRIFKIRIVALDI" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo github.png" alt="GitHub" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">GitHub</p>
-        </a>
-        <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo linkedin.png" alt="LinkedIn" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">LinkedIn</p>
-        </a>
-        <a href="https://www.instagram.com/rifkiikrif/" target="_blank" class="bg-[#030518] p-4 rounded-lg border border-blue-700/30 flex flex-col items-center justify-center hover:scale-105 transition-transform">
-          <img src="images/logo/logo ig.png" alt="Instagram" class="w-12 h-12 mb-2">
-          <p class="text-gray-300 text-sm hidden md:block">Instagram</p>
+        <a href="https://www.instagram.com/rifkiikrif/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:scale-110 transition-transform">
+          <img src="images/logo/logo ig.png" alt="" class="w-5 h-5">
         </a>
       </div>
-            <form id="contact-form" class="space-y-4" data-aos="fade-left" novalidate>
-        <input type="text" id="contact-name" name="name" placeholder="Name" required aria-label="Name" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors">
-        <input type="email" id="contact-email" name="email" placeholder="Email" required aria-label="Email" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors">
-        <textarea id="contact-message" name="message" placeholder="Message" rows="4" required aria-label="Message" class="w-full p-3 bg-[#030518] border border-blue-700/30 rounded-lg text-white placeholder-gray-400 focus:border-cyan-400 focus:outline-none transition-colors"></textarea>
-                <div class="flex flex-col sm:flex-row gap-3">
-                  <button type="button" id="send-email-btn" class="flex-1 bg-cyan-500 hover:bg-cyan-600 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">✉️ Kirim via Email</button>
-                  <button type="button" id="send-wa-btn" class="flex-1 bg-green-500 hover:bg-green-600 py-3 rounded-lg text-white font-semibold transition-all hover:scale-105">💬 Kirim via WhatsApp</button>
-                </div>
-              </form>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="bg-[#030518] text-center py-6 border-t border-blue-700/30">
-    <p class="text-gray-400 text-sm">© 2025 M. RIFKI RIVALDI. All rights reserved.</p>
-        <div class="flex justify-center gap-6 mt-3 text-cyan-400 text-xl">
-      <a href="https://www.linkedin.com/in/m-rifki-rivaldi-091b49390/?skipRedirect=true" target="_blank" rel="noopener" aria-label="LinkedIn" class="hover:scale-110 transition-transform"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/MRIFKIRIVALDI" target="_blank" rel="noopener" aria-label="GitHub" class="hover:scale-110 transition-transform"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.instagram.com/rifkiikrif/" target="_blank" rel="noopener" aria-label="Instagram" class="hover:scale-110 transition-transform"><i class="fa-brands fa-instagram"></i></a>
+    <!-- Certificate Modal -->
+    <div id="certificate-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
+      <div class="bg-[#030518] p-8 rounded-2xl border border-cyan-400 max-w-4xl w-full mx-4 relative">
+        <button onclick="closeModal()" class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl">&times;</button>
+        <img id="modal-image" src="" alt="Certificate" class="w-full h-auto rounded-lg mb-4">
+        <h3 id="modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
+        <p id="modal-description" class="text-gray-300"></p>
+      </div>
     </div>
-  </footer>
 
-  <!-- Certificate Modal -->
-  <div id="certificate-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
-    <div class="bg-[#030518] p-8 rounded-2xl border border-cyan-400 max-w-4xl w-full mx-4 relative">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl">&times;</button>
-      <img id="modal-image" src="" alt="Certificate" class="w-full h-auto rounded-lg mb-4">
-      <h3 id="modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
-      <p id="modal-description" class="text-gray-300"></p>
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
+      <div class="bg-[#030518] p-8 rounded-2xl border border-cyan-400 max-w-4xl w-full mx-4 relative">
+        <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl">&times;</button>
+        <img id="project-modal-image" src="" alt="Project" class="w-full h-auto rounded-lg mb-4">
+        <h3 id="project-modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
+      </div>
     </div>
-  </div>
 
-  <!-- Project Modal -->
-  <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-75 hidden items-center justify-center z-50">
-    <div class="bg-[#030518] p-8 rounded-2xl border border-cyan-400 max-w-4xl w-full mx-4 relative">
-      <button onclick="closeProjectModal()" class="absolute top-4 right-4 text-cyan-400 hover:text-white text-2xl">&times;</button>
-      <img id="project-modal-image" src="" alt="Project" class="w-full h-auto rounded-lg mb-4">
-      <h3 id="project-modal-title" class="text-2xl font-bold text-cyan-400 mb-2"></h3>
-    </div>
-  </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/gallery.js"></script>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
-  <script src="https://kit.fontawesome.com/a2e0f9b6b2.js" crossorigin="anonymous"></script>
-</body>
+    <!-- Robot 3D: Three.js, GLTFLoader, lalu kode robot -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="js/robot.js"></script>
+
+    <!-- Ekspor PowerPoint -->
+    <script src="https://cdn.jsdelivr.net/npm/pptxgenjs@3.12.0/dist/pptxgen.bundle.js"></script>
+    <script src="js/export-ppt.js"></script>
+  </body>
 </html>
